@@ -1,6 +1,3 @@
 extends RigidBody2D
 
-var interact
-
-
-	
+class_name NPC

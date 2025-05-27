@@ -1,0 +1,49 @@
+[gd_scene load_steps=4 format=3 uid="uid://c107v8fplpr27"]
+
+[ext_resource type="Texture2D" uid="uid://bpf71rs341ff" path="res://Pilgrimage Assets/pilgrim_line_colour.png" id="2_i3pqv"]
+
+[sub_resource type="GDScript" id="GDScript_4flbx"]
+script/source = "extends CharacterBody2D
+
+var speed = 400  # speed in pixels/sec
+
+@onready var TalkTo = $Main/Doctor/Area2D/TalkTo
+@onready var TestDialogue = $Player/Camera2D2/TestDialogue
+@onready var Player = $Player
+
+var CloseBy: bool
+
+func _physics_process(_delta):
+	var direction = Input.get_vector(\"Left\", \"Right\", \"Up\", \"Down\")
+	velocity = direction * speed
+
+	move_and_slide()
+
+
+
+func _on_area_2d_body_entered(_body: Node2D) -> void:
+	CloseBy = true
+	$Main/Doctor/Area2D/TalkTo.show
+	if(CloseBy):
+		$Main/Doctor/Area2D/TalkTo.text = (\"Talk to the Doctor\")
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	CloseBy = false
+	$Main/Doctor/Area2D/TalkTo.hide
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(18, 53)
+
+[node name="Player" type="CharacterBody2D"]
+light_mask = 2
+visibility_layer = 2
+z_index = 10
+script = SubResource("GDScript_4flbx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i3pqv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1.5)
+shape = SubResource("RectangleShape2D_0xm2m")
