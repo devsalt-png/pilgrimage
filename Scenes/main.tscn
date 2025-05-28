@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm0nyem78k4g"]
+
+[ext_resource type="PackedScene" uid="uid://bd3fbprxglna5" path="res://Scenes/player.tscn" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://bw631ycotg20q" path="res://Scenes/npc.tscn" id="2_8gbba"]
+[ext_resource type="Texture2D" uid="uid://dijfum2pfx5sh" path="res://Pilgrimage Assets/chessboard bg.png" id="3_1bvp3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8gbba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(45, 1127)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7mycd"]
+size = Vector2(1799, 20)
+
+[node name="Main" type="Node"]
+
+[node name="Player" parent="." instance=ExtResource("1_8gbba")]
+
+[node name="NPC" parent="." instance=ExtResource("2_8gbba")]
+position = Vector2(174, 0)
+physics_material_override = SubResource("PhysicsMaterial_8gbba")
+
+[node name="Map" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = -905.0
+offset_top = -580.0
+offset_right = 1865.0
+offset_bottom = 1183.0
+texture = ExtResource("3_1bvp3")
+stretch_mode = 1
+
+[node name="LeftBoundary" type="StaticBody2D" parent="Map"]
+position = Vector2(508, 830)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/LeftBoundary"]
+position = Vector2(1, 81)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="RightBoundary" type="StaticBody2D" parent="Map"]
+position = Vector2(2327, 830)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/RightBoundary"]
+position = Vector2(1, 81)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="TopBoundary" type="StaticBody2D" parent="Map"]
+position = Vector2(1378, 374)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/TopBoundary"]
+position = Vector2(45.5, 0)
+shape = SubResource("RectangleShape2D_7mycd")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="Map"]
+position = Vector2(1378, 1430)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/BottomBoundary"]
+position = Vector2(45.5, 0)
+shape = SubResource("RectangleShape2D_7mycd")
