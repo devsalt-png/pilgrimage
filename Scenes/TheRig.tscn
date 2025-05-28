@@ -1,0 +1,117 @@
+[gd_scene load_steps=9 format=4 uid="uid://bds5irxkx3yp1"]
+
+[ext_resource type="TileSet" uid="uid://73oa1xkpr4q7" path="res://TileSets/test_tiles.tres" id="1_0b4e3"]
+[ext_resource type="PackedScene" uid="uid://bd3fbprxglna5" path="res://Scenes/player.tscn" id="3_7p3po"]
+[ext_resource type="PackedScene" uid="uid://bw631ycotg20q" path="res://Scenes/npc.tscn" id="3_aopis"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ylps8"]
+size = Vector2(575, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7p3po"]
+size = Vector2(13, 119)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aopis"]
+size = Vector2(9, 427)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kws3s"]
+size = Vector2(382, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrbaw"]
+size = Vector2(190, 14)
+
+[node name="TheRig" type="Node"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(-89, 97)
+tile_map_data = PackedByteArray("AAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AAAAAAAAAAD+/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wAAAAAAAAAAAAD//wEAAAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AAAAAAAAAAABAAAAAAAAAAAAAAABAAEAAAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAD9//z/CAAAAAAAAAD+//z/CAAAAAAAAAD///z/CAAAAAAAAAAAAPz/CAAAAAAAAAABAPz/CAAAAAAAAAACAPz/CAAAAAAAAAADAPz/CAAAAAAAAAAEAPz/BwAAAAAAAAAEAAIABgAAAAAAAAAEAP3/BQAAAAAAAAAEAP7/BQAAAAAAAAAEAP//BQAAAAAAAAAEAAAABQAAAAAAAAAEAAEABQAAAAAAAAD8//z/BAAAAAAAAAD8//3/AwAAAAAAAAD8/wEAAwAAAAAAAAD8/wIAAgAAAAAAAAD9/wIAAQAAAAAAAAD+/wIAAQAAAAAAAAD//wIAAQAAAAAAAAAAAAIAAQAAAAAAAAABAAIAAQAAAAAAAAACAAIAAQAAAAAAAAADAAIAAQAAAAAAAAD5/wAAAQAAAAAAAAD6/wAAAQAAAAAAAAD7/wAAAQAAAAAAAAD5//7/CAAAAAAAAAD6//7/CAAAAAAAAAD7//7/CAAAAAAAAAD5////AAAAAAAAAAD6////AAAAAAAAAAD7////AAAAAAAAAAD8////AAAAAAAAAAD8//7/AAAAAAAAAAD8/wAAAAAAAAAAAAD0/wIAAQAAAAAAAAD1/wIAAQAAAAAAAAD2/wIAAQAAAAAAAAD3/wIAAQAAAAAAAADz/wIAAgAAAAAAAADz//3/AwAAAAAAAADz//7/AwAAAAAAAADz////AwAAAAAAAADz/wAAAwAAAAAAAADz/wEAAwAAAAAAAADz//z/BAAAAAAAAAD4/wEABQAAAAAAAAD4//3/BQAAAAAAAAD4/wIABgAAAAAAAAD4//z/BwAAAAAAAAD0//z/CAAAAAAAAAD1//z/CAAAAAAAAAD2//z/CAAAAAAAAAD3//z/CAAAAAAAAAD0//3/AAAAAAAAAAD0//7/AAAAAAAAAAD0////AAAAAAAAAAD0/wAAAAAAAAAAAAD0/wEAAAAAAAAAAAD1//3/AAAAAAAAAAD1//7/AAAAAAAAAAD1////AAAAAAAAAAD1/wAAAAAAAAAAAAD1/wEAAAAAAAAAAAD2//3/AAAAAAAAAAD2//7/AAAAAAAAAAD2////AAAAAAAAAAD2/wAAAAAAAAAAAAD2/wEAAAAAAAAAAAD3//3/AAAAAAAAAAD3//7/AAAAAAAAAAD3////AAAAAAAAAAD3/wAAAAAAAAAAAAD3/wEAAAAAAAAAAAD4//7/AAAAAAAAAAD4////AAAAAAAAAAD4/wAAAAAAAAAAAAA=")
+tile_set = ExtResource("1_0b4e3")
+
+[node name="Player" parent="." instance=ExtResource("3_7p3po")]
+position = Vector2(-337, 63)
+
+[node name="Boundaries" type="Node" parent="."]
+
+[node name="TopBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-66, -153)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopBoundary"]
+position = Vector2(9.5, -0.5)
+shape = SubResource("RectangleShape2D_ylps8")
+
+[node name="BottomBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-66, 283)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundary"]
+position = Vector2(9.5, -0.5)
+shape = SubResource("RectangleShape2D_ylps8")
+
+[node name="TopLeftBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-342, -141)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopLeftBoundary"]
+position = Vector2(3.5, 49.5)
+shape = SubResource("RectangleShape2D_7p3po")
+
+[node name="BottomLeftBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-342, 173)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomLeftBoundary"]
+position = Vector2(3.5, 49.5)
+shape = SubResource("RectangleShape2D_7p3po")
+
+[node name="TopRightBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-546, -141)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopRightBoundary"]
+position = Vector2(3.5, 49.5)
+shape = SubResource("RectangleShape2D_7p3po")
+
+[node name="BottomRightBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-546, 173)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomRightBoundary"]
+position = Vector2(3.5, 49.5)
+shape = SubResource("RectangleShape2D_7p3po")
+
+[node name="RightBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(229, -138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/RightBoundary"]
+position = Vector2(-5.5, 203.5)
+shape = SubResource("RectangleShape2D_aopis")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-910, -138)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/LeftBoundary"]
+position = Vector2(-5.5, 203.5)
+shape = SubResource("RectangleShape2D_aopis")
+
+[node name="TopBoundarySQ" type="StaticBody2D" parent="Boundaries"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopBoundarySQ"]
+position = Vector2(-728, -153.5)
+shape = SubResource("RectangleShape2D_kws3s")
+
+[node name="BottomBoundarySQ" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(0, 435)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundarySQ"]
+position = Vector2(-728, -153.5)
+shape = SubResource("RectangleShape2D_kws3s")
+
+[node name="TopBoundaryPASS" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-525, -27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/TopBoundaryPASS"]
+position = Vector2(85, 3)
+shape = SubResource("RectangleShape2D_xrbaw")
+
+[node name="BottomBoundaryPASS" type="StaticBody2D" parent="Boundaries"]
+position = Vector2(-525, 152)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Boundaries/BottomBoundaryPASS"]
+position = Vector2(85, 3)
+shape = SubResource("RectangleShape2D_xrbaw")
+
+[node name="NPC" parent="." instance=ExtResource("3_aopis")]

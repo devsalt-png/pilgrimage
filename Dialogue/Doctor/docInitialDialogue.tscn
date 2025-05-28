@@ -1,0 +1,119 @@
+[gd_scene load_steps=2 format=3 uid="uid://f5y0pfl0biul"]
+
+[ext_resource type="Script" uid="uid://cpbrg8hlqflyg" path="res://Dialogue/Doctor/hello.gd" id="1_are7q"]
+
+[node name="DocInitialDialogue" type="Node"]
+
+[node name="Hello" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -36.0
+offset_right = 70.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Oh, you're awake!"
+
+[node name="Node2" type="Node" parent="."]
+
+[node name="AnnoyingNoise" type="Button" parent="Node2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.5
+offset_right = 151.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "That NOISE is ANNOYING! Turn it OFF!"
+
+[node name="DoctorQ" type="Button" parent="Node2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -150.0
+offset_top = -60.5
+offset_right = 151.0
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Doctor?"
+
+[node name="WhoAmI" type="Button" parent="Node2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -97.5
+offset_right = 122.5
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Okay . . . who am I?"
+
+[node name="Sorry" type="Button" parent="Node2"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -97.5
+offset_right = 122.5
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "I'm sorry, it's just stupid annoying.
+"
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("1_are7q")
+
+[node name="WhoAreYou" type="Button" parent="Node"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -60.5
+offset_right = 122.5
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Who are you?"
+
+[node name="TurnItOff" type="Button" parent="Node"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -121.5
+offset_top = -97.5
+offset_right = 122.5
+offset_bottom = -61.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Turn off that damn noise!
+"
+
+[connection signal="pressed" from="Node2/AnnoyingNoise" to="Node" method="_on_annoying_noise_pressed"]
+[connection signal="pressed" from="Node2/DoctorQ" to="Node" method="_on_doctor_q_pressed"]
+[connection signal="pressed" from="Node2/WhoAmI" to="Node" method="_on_who_am_i_pressed"]
+[connection signal="pressed" from="Node2/Sorry" to="Node" method="_on_sorry_pressed"]
+[connection signal="button_down" from="Node/WhoAreYou" to="Node" method="_on_who_are_you_button_down"]
+[connection signal="button_down" from="Node/TurnItOff" to="Node" method="_on_turn_it_off_button_down"]

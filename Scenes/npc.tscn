@@ -1,16 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bw631ycotg20q"]
+[gd_scene load_steps=6 format=3 uid="uid://bw631ycotg20q"]
 
 [ext_resource type="Texture2D" uid="uid://wgbrwxvmer8m" path="res://Pilgrimage Assets/doc_line_colour.png" id="1_acqhf"]
+[ext_resource type="Script" uid="uid://c1e61hd47q1wy" path="res://Scripts/npc.gd" id="1_g6unj"]
+[ext_resource type="PackedScene" uid="uid://kjr5cxgyj7ih" path="res://Interactions/interaction.tscn" id="2_xxsvc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_272bh"]
 size = Vector2(13, 62)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_5vw27"]
-radius = 93.0215
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6unj"]
+radius = 118.017
 
 [node name="NPC" type="RigidBody2D"]
 z_index = 10
 gravity_scale = 0.0
+script = ExtResource("1_g6unj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_acqhf")
@@ -19,7 +22,8 @@ texture = ExtResource("1_acqhf")
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_272bh")
 
-[node name="IneractionArea" type="Area2D" parent="."]
+[node name="InteractableItem" parent="." instance=ExtResource("2_xxsvc")]
+InteractName = "Talk to the Doctor"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="IneractionArea"]
-shape = SubResource("CircleShape2D_5vw27")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableItem"]
+shape = SubResource("CircleShape2D_g6unj")
