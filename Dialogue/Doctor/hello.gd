@@ -22,18 +22,20 @@ func _on_turn_it_off_button_down() -> void:
 		# child.queue_free()
 	ChoiceMade = 1
 	hello.text = "You're so rude!" 
-	wait(0.5)
+	# wait(0.5)
+	queue_free()
 	next_scene()
 
 func _on_who_are_you_button_down() -> void:
 	ChoiceMade = 2
 	hello.text = "I'm the Doctor, heh!"
-	wait(0.5)
+	# wait(0.5)
 	queue_free()
+	next_scene()
 
 func wait(seconds: float) -> void:
-	await get_tree().create_timer(seconds).timeout
-	next_scene()
+	# await get_tree().create_timer(seconds).timeout
+	pass
 
 func next_scene():
 	annoying_noise.show()
@@ -55,12 +57,14 @@ func next_scene():
 
 
 func _on_annoying_noise_pressed() -> void:
+	wait(0.5)
 	ChoiceMade = 11
 	hello.text = "No, you!"
 	annoying_noise.hide()
 	sorry.hide()
 
 func _on_doctor_q_pressed() -> void:
+	wait(0.5)
 	ChoiceMade = 21
 	hello.text = "You don't know what a doctor is?"
 	who_am_i.hide()
@@ -68,6 +72,7 @@ func _on_doctor_q_pressed() -> void:
 
 
 func _on_who_am_i_pressed() -> void:
+	wait(0.5)
 	ChoiceMade = 22
 	hello.text = "You don't know who you are?"
 	who_am_i.hide()
@@ -75,6 +80,7 @@ func _on_who_am_i_pressed() -> void:
 
 
 func _on_sorry_pressed() -> void:
+	wait(0.5)
 	ChoiceMade = 12
 	hello.text = "*sigh* I get it . . ."
 	annoying_noise.hide()

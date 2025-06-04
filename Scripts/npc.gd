@@ -7,4 +7,3 @@ func _ready() -> void:
 
 func _on_interact():
 	interactable_item.CanInteract = false
-	

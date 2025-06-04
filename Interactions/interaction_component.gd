@@ -8,7 +8,7 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") and CanInteract:
 		if CurrentInteractions:
 			CanInteract = false
-			interact_label.hide()
+			Dialogic.start("Doc")
 			
 			await CurrentInteractions[0].interact.call()
 			
