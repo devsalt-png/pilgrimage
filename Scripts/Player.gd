@@ -11,3 +11,14 @@ func _physics_process(_delta):
 		speed = 200
 
 	move_and_slide()
+
+func attack():
+	if Input.is_action_just_pressed("Click"):
+		CombatSingleton.PlayerDMG += CombatSingleton.PlayerDMG / CombatSingleton.BossDEF
+		CombatSingleton.BossHealth -= CombatSingleton.PlayerDMG
+		print("HITT")
+
+func _ready() -> void:
+	print("MAMA")
+	print(CombatSingleton.BossHealth)
+	print(CombatSingleton.PlayerDMG)
